@@ -63,6 +63,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.stats.game_active = False
+            pygame.mouse.set_visible(True)
 
 
     def _check_aliens_bottom(self):
@@ -94,6 +95,7 @@ class AlienInvasion:
             # Уничтожение существующих снарядов и создание нового флота.
             self.bullets.empty ()
             self._create_fleet ()
+            self.settings.increase_speed()
 
 
     def _update_aliens(self):
@@ -169,6 +171,9 @@ class AlienInvasion:
         """Запускает новую игру при нажатии кнопки Play."""
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            # Сброс игровых настроек.
+            self.settings.initialize_dynamic_settings()
+
             # Сброс игровой статистики.
             self.stats.reset_stats()
             self.stats.game_active = True
