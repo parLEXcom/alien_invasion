@@ -9,10 +9,11 @@ class Settings():
 
         # Настройки корабля
         self.ship_speed = 1.5
+        self.ship_limit = 3
 
         # Настройки пришельцев
         self.alien_speed = 1.0
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 100
         # fleet_direction = 1 обозначает движение вправо; а -1 - влево.
         self.fleet_direction = 1
         
